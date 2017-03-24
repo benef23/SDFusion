@@ -2,7 +2,7 @@ import adsk.core, adsk.fusion, traceback
 import os.path, sys
 import xml.etree.ElementTree as ET
 import math
-import lxml.etree as etree
+import xml.dom.minidom as DOM
 
 # transform fusion transformation matrix to gazebo frame
 def gazeboMatrix(m):
@@ -297,7 +297,7 @@ def run(context):
         fileDir = "C:/Users/techtalentsVR1/Documents/roboy/fusion/SDFusion"
         
         # specify model name
-        modelName = "legs_anna"
+        modelName = "Roboy"
         
         # build sdf root node
         root = ET.Element("sdf", version="1.6")
@@ -349,22 +349,17 @@ def run(context):
                             model.append(link)
                             # delete the temporary new occurrence
                             linkOcc.deleteMe()
-
+                        
                             # Call doEvents to give Fusion a chance to react.
                             adsk.doEvents()
         
-        # build XML tree for SDF file
-        tree = ET.ElementTree(root)
         filename = fileDir + "/model.sdf"
         
-        # write XML tree to SDF file
-        tree.write(filename)
+        domxml = DOM.parseString(ET.tostring(root))
+        pretty = domxml.toprettyxml()
 
-        x = etree.parse("model.sdf")
-        string = etree.tostring(x, pretty_print = True)
-
-        file = open("model.sdf", "w")
-        file.write(string)
+        file = open(filename, "w")
+        file.write(pretty)
         file.close()
         
         ui.messageBox('SDF file written to "' + filename + '"')
