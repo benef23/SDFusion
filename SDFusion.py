@@ -1,16 +1,15 @@
 import adsk.core
 import adsk.fusion
 import traceback
-import os.path
 import xml.etree.ElementTree as ET
 import math
 import xml.dom.minidom as DOM
 
 # Global variables
-design
-fileDir
-modelName
-rootOcc
+design = None
+fileDir = ""
+modelName = ""
+rootOcc = None
 
 # Transforms Fusion 360 coordinate system to Gazebo cooridnate system.
 def gazeboMatrix(m):
@@ -266,7 +265,7 @@ def run(context):
         rootComp = design.rootComponent
         # get all occurrences within the root component
         global rootOcc
-        rootOcc = rootComponent.occurrences
+        rootOcc = rootComp.occurrences
         # specify output location
         global fileDir
         fileDir = "C:/Users/techtalentsVR1/Documents/roboy/fusion/SDFusion"
