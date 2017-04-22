@@ -1,0 +1,545 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Public Interfaces &mdash; SDFusion 0.0. documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SDFusion 0.0. documentation" href="../index.html"/>
+        <link rel="next" title="Solution Strategy" href="../development/0_solution_strategy.html"/>
+        <link rel="prev" title="Design Decisions" href="5_design_decisions.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SDFusion
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Usage and Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Usage/0_installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Usage/1_getting_started.html">Getting started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Interfaces and Scope</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="0_system_scope_and_context.html">Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_conventions.html">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_architecture_constraints.html">Architecture Constraints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_technical_interfaces.html">Technical Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_user_interface.html">User Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_design_decisions.html">Design Decisions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Public Interfaces</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/0_solution_strategy.html">Solution Strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/1_test_strategy.html">Test Strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/2_building_block_view.html">Building Block View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/3_runtime_view.html">Runtime View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/4_deployment_view.html">Deployment View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/5_Libraries.html">Libraries and external Software</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about-arc42.html">About arc42</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SDFusion</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Public Interfaces</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/ScopeContext/6_API.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="public-interfaces">
+<span id="id1"></span><h1>Public Interfaces<a class="headerlink" href="#public-interfaces" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="SDFusion">
+<span class="target" id="SDFusionnamespace_s_d_fusion"></span><em class="property">namespace </em><code class="descname">SDFusion</code><a class="headerlink" href="#SDFusion" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is an exporter for Autodesk Fusion 360 models to SDFormat. </p>
+<p>This can be loaded as an addon in Fusion 360. It exports all rigid groups of the robot model as links to STL and creates nodes in the SDF file for them. It creates SDF nodes for all joints of the robot model. Supported joint types are: &#8220;fixed&#8221;, &#8220;revolute&#8221;, and &#8220;ball&#8221;. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt id="SDFusion.gazeboMatrix">
+<span class="target" id="SDFusionnamespace_s_d_fusion_1ad9d58eb8474af5abcc947ecabc2fbae8"></span><code class="descname">gazeboMatrix</code><span class="sig-paren">(</span><em>self self</em><span class="sig-paren">)</span><a class="headerlink" href="#SDFusion.gazeboMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms a matrix from Fusion 360 to Gazebo. </p>
+<p>This transforms a matrix given in the Fusion 360 coordinate system to one in the Gazebo cooridnate system.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>the matrix wrt the Gazebo coordinate system </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">self</span></code>: a matrix given wrt the Fusion 360 coordinate system </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="SDFusion.vectorToString">
+<span class="target" id="SDFusionnamespace_s_d_fusion_1a983bd2c7c97b3edcce7845316040159c"></span><code class="descname">vectorToString</code><span class="sig-paren">(</span><em>x x</em>, <em>y y</em>, <em>z z</em><span class="sig-paren">)</span><a class="headerlink" href="#SDFusion.vectorToString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts three double values to string. </p>
+<p>This function converts three double values to a string separated by spaces.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>the string of these values </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">x</span></code>: the first double value </li>
+<li><code class="docutils literal"><span class="pre">y</span></code>: the second double value </li>
+<li><code class="docutils literal"><span class="pre">z</span></code>: the third double value </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="SDFusion.sdfPoseVector">
+<span class="target" id="SDFusionnamespace_s_d_fusion_1a4e40458cec59a5cd416972fffa69172e"></span><code class="descname">sdfPoseVector</code><span class="sig-paren">(</span><em>vector vector</em><span class="sig-paren">)</span><a class="headerlink" href="#SDFusion.sdfPoseVector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds SDF pose node from vector. </p>
+<p>This function builds the SDF pose node for every joint.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>the SDF pose node </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">vector</span></code>: the vector pointing to the origin of the joint. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="SDFusion.sdfPoseMatrix">
+<span class="target" id="SDFusionnamespace_s_d_fusion_1ac565f1d7528daf578e2a19343b3af871"></span><code class="descname">sdfPoseMatrix</code><span class="sig-paren">(</span><em>matrix matrix</em><span class="sig-paren">)</span><a class="headerlink" href="#SDFusion.sdfPoseMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds SDF pose node from matrix. </p>
+<p>This function builds the SDF pose node for every link.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>the SDF pose node </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">matrix</span></code>: the transformation matrix of the link </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="SDFusion.sdfInertial">
+<span class="target" id="SDFusionnamespace_s_d_fusion_1ad910e028274986c446803119ff722a11"></span><code class="descname">sdfInertial</code><span class="sig-paren">(</span><em>physics physics</em><span class="sig-paren">)</span><a class="headerlink" href="#SDFusion.sdfInertial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds SDF inertial node from physical properties. </p>
+<p>This function builds the SDF inertial node for every link.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>the SDF inertial node </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">physics</span></code>: the physical properties of a link </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="SDFusion.sdfMom">
+<span class="target" id="SDFusionnamespace_s_d_fusion_1a030d7bfb204eb03dcc75c739b2032f4d"></span><code class="descname">sdfMom</code><span class="sig-paren">(</span><em>tag tag</em>, <em>value value</em><span class="sig-paren">)</span><a class="headerlink" href="#SDFusion.sdfMom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds SDF node for one moment of inertia. </p>
+<p>This helper function builds the SDF node for one moment of inertia.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>the SDF moment of inertia node </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">tag</span></code>: the tag of the XML node </li>
+<li><code class="docutils literal"><span class="pre">value</span></code>: the text of the XML node </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="SDFusion.sdfInertia">
+<span class="target" id="SDFusionnamespace_s_d_fusion_1a887b4378aceeb4817399fe0dfe81fc28"></span><code class="descname">sdfInertia</code><span class="sig-paren">(</span><em>physics physics</em><span class="sig-paren">)</span><a class="headerlink" href="#SDFusion.sdfInertia" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds SDF inertia node from physical properties. </p>
+<p>This function builds the SDF inertia node for every link.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>the SDF inertia node </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">physics</span></code>: the physical properties of a link </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="SDFusion.linkSDF">
+<span class="target" id="SDFusionnamespace_s_d_fusion_1a55da14e942487b28a87d13316ad69485"></span><code class="descname">linkSDF</code><span class="sig-paren">(</span><em>lin lin</em><span class="sig-paren">)</span><a class="headerlink" href="#SDFusion.linkSDF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds SDF link node. </p>
+<p>This function builds the SDF link node for every link.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>the SDF link node </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">lin</span></code>: the link to be exported </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="SDFusion.jointSDF">
+<span class="target" id="SDFusionnamespace_s_d_fusion_1afd26be0b30aee26c5e9317502c303faa"></span><code class="descname">jointSDF</code><span class="sig-paren">(</span><em>joi joi</em>, <em>name_parent name_parent</em>, <em>name_child name_child</em><span class="sig-paren">)</span><a class="headerlink" href="#SDFusion.jointSDF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds SDF joint node. </p>
+<p>This function builds the SDF joint node for every joint type.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>the SDF joint node </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">joi</span></code>: the joint </li>
+<li><code class="docutils literal"><span class="pre">name_parent</span></code>: the name of the parent link </li>
+<li><code class="docutils literal"><span class="pre">name_child</span></code>: the name of the child link </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="SDFusion.revoluteJoint">
+<span class="target" id="SDFusionnamespace_s_d_fusion_1a7a30d112a08dc438704b99988e910fd1"></span><code class="descname">revoluteJoint</code><span class="sig-paren">(</span><em>joi joi</em><span class="sig-paren">)</span><a class="headerlink" href="#SDFusion.revoluteJoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds SDF axis node for revolute joints. </p>
+<p>This function builds the SDF axis node for revolute joint.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>a list of information nodes (here one axis node) for the revolute joint </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">joi</span></code>: one revolute joint object </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="SDFusion.exportToSTL">
+<span class="target" id="SDFusionnamespace_s_d_fusion_1af510d43ccec0def809fcb4728eca6150"></span><code class="descname">exportToSTL</code><span class="sig-paren">(</span><em>occ occ</em>, <em>linkName linkName</em><span class="sig-paren">)</span><a class="headerlink" href="#SDFusion.exportToSTL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plain STL export. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">occ</span></code>: the occurrence to be exported </li>
+<li><code class="docutils literal"><span class="pre">linkName</span></code>: the name of the created STL file </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="SDFusion.rigidGroupToSTL">
+<span class="target" id="SDFusionnamespace_s_d_fusion_1a3c688c19bdb6661859c089c11fb24e84"></span><code class="descname">rigidGroupToSTL</code><span class="sig-paren">(</span><em>rig rig</em><span class="sig-paren">)</span><a class="headerlink" href="#SDFusion.rigidGroupToSTL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exports a rigid group to STL. </p>
+<p>Transforms a matrix from Fusion 360 to Gazebo.</p>
+<p>This exports a rigid group as one STL file. For this all components of the rigidGroup are copied to a new component.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>a new occurrence which is used to export the relevant information to SDFormat </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">rig</span></code>: the rigid group to be exported </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="SDFusion.occurrenceToSTL">
+<span class="target" id="SDFusionnamespace_s_d_fusion_1aca49eb8bcd2a11b732fb0d327534314e"></span><code class="descname">occurrenceToSTL</code><span class="sig-paren">(</span><em>occ occ</em><span class="sig-paren">)</span><a class="headerlink" href="#SDFusion.occurrenceToSTL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exports an single occurrence to STL. </p>
+<p>This exports a single Fusion occurence as an STL file.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>a new occurrence which is used to export the relevant information to SDFormat </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">occ</span></code>: the occurrence that needs to be exported. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="SDFusion.clearName">
+<span class="target" id="SDFusionnamespace_s_d_fusion_1ae1ae019691620803c53824f885012ed2"></span><code class="descname">clearName</code><span class="sig-paren">(</span><em>name name</em><span class="sig-paren">)</span><a class="headerlink" href="#SDFusion.clearName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear filenames of unwanted characters. </p>
+<p>This function replaces all &#8216;:&#8217; with underscores and deletes spaces in filenames. to one in the Gazebo cooridnate system.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>the filename without &#8216;:&#8217; and spaces </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">name</span></code>: a filename </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="SDFusion.run">
+<span class="target" id="SDFusionnamespace_s_d_fusion_1a3543f5250b401f0b56e6e822b7b1cc78"></span><code class="descname">run</code><span class="sig-paren">(</span><em>context context</em><span class="sig-paren">)</span><a class="headerlink" href="#SDFusion.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exports a robot model from Fusion 360 to SDFormat. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Variables</p>
+<dl class="attribute">
+<dt id="SDFusion.design">
+<span class="target" id="SDFusionnamespace_s_d_fusion_1a219cbf2c1ee20eacce22fdbe69577f13"></span><code class="descname">design</code> = None<a class="headerlink" href="#SDFusion.design" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<span class="target" id="SDFusionnamespace_s_d_fusion_1a1e4586d14850ae4cf526680a3c49cc6a"></span><code class="descname">string SDFusion.fileDir</code> = &quot;C:/Users/techtalentsVR1/Documents/roboy/fusion/SDFusion&quot;</dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<span class="target" id="SDFusionnamespace_s_d_fusion_1ad9e4c1058db739b42d4d16eac4dd9736"></span><code class="descname">string SDFusion.modelName</code> = &quot;Roboy&quot;</dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="SDFusion.rootOcc">
+<span class="target" id="SDFusionnamespace_s_d_fusion_1aef9425fa7b96797687dc0c651f925025"></span><code class="descname">rootOcc</code> = None<a class="headerlink" href="#SDFusion.rootOcc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="file">
+<dt>
+<span class="target" id="SDFusion_s_d_fusion_8py"></span><em>file</em> <code class="descname">SDFusion.py</code></dt>
+<dd></dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../development/0_solution_strategy.html" class="btn btn-neutral float-right" title="Solution Strategy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="5_design_decisions.html" class="btn btn-neutral" title="Design Decisions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Anna Sesselmann, based on Template by Dr. Peter.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.0.',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
