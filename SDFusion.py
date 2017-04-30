@@ -15,10 +15,20 @@ import xml.dom.minidom as DOM
 # It creates SDF nodes for all joints of the robot model.
 # Supported joint types are: "fixed", "revolute", and "ball".
 
-# Global variables
+## Global variable to make the Fusion 360 design object accessible
+# for every function.
 design = None
+
+## Global variable to make the output file directory accessible foy
+# every function.
 fileDir = "C:/Users/techtalentsVR1/Documents/roboy/fusion/SDFusion"
-modelName = "Roboy" 
+
+## Global variable to make the robot model name accessible foy
+# every function.
+modelName = "Roboy"
+
+## Global variable to make the root occurrence accessible foy
+# every function.
 rootOcc = None
 
 ## Transforms a matrix from Fusion 360 to Gazebo.
