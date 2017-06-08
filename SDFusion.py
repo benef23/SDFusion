@@ -366,7 +366,7 @@ def run(context):
         rootComp = design.rootComponent
         # get all occurrences within the root component
         global rootOcc
-        rootOcc = rootComponent.occurrences
+        rootOcc = rootComp.occurrences
         # build sdf root node
         root = ET.Element("sdf", version="1.6")
         model = ET.Element("model", name=modelName)
