@@ -1,7 +1,7 @@
 import adsk.core
 import adsk.fusion
 import traceback
-import os.path
+#import os.path
 import xml.etree.ElementTree as ET
 import math
 import xml.dom.minidom as DOM
@@ -19,17 +19,30 @@ import xml.dom.minidom as DOM
 # for every function.
 design = None
 
-## Global variable to make the output file directory accessible foy
+## Global variable to make the output file directory accessible for
 # every function.
 fileDir = "C:/Users/techtalentsVR1/Documents/roboy/fusion/SDFusion"
 
-## Global variable to make the robot model name accessible foy
+## Global variable to make the robot model name accessible for
 # every function.
-modelName = "Roboy"
+modelName = "Legs"
 
-## Global variable to make the root occurrence accessible foy
+## Global variable to make the root occurrence accessible for
 # every function.
 rootOcc = None
+
+## Global variable to specify if the exporter should export viaPoints.
+exportViaPoints = True
+
+## Global variable to specify the file name of the plugin loaded by the SDF.
+# Only necessary if **exportViaPoints** is **True**.
+pluginFileName = "libDummy.so"
+
+## Global variable to specify the name of the plugin loaded by the SDF-
+# Only necessary if **exportViaPoints** id **True**.
+pluginName = "DummyPlugin"
+
+## Global viaPoint
 
 ## Transforms a matrix from Fusion 360 to Gazebo.
 #
@@ -352,6 +365,22 @@ def clearName(name):
     name = name.replace(" ", "")
     return name
 
+## A class to hold information about all muscles.
+class Plugin:
+    myoMuscles = []
+
+## A class to hold information about all viaPoints of a muscle.
+class MyoMuscle:
+    number = ""
+    viaPoints = []
+
+## A class to hold information about a viaPoint.
+class ViaPoint:
+    coordinates = ""
+    link = ""
+    number = ""
+
+
 ## Exports a robot model from Fusion 360 to SDFormat.
 def run(context):
     ui = None
@@ -383,6 +412,7 @@ def run(context):
                 linkOcc.deleteMe()
                 # Call doEvents to give Fusion a chance to react.
                 adsk.doEvents()
+        pluginObj = Plugin()
         #get all joints of the design
         allComponents = design.allComponents
         for com in allComponents:
@@ -414,6 +444,53 @@ def run(context):
                             linkOcc.deleteMe()
                             # Call doEvents to give Fusion a chance to react.
                             adsk.doEvents()
+                # get all construction points that serve as viaPoints
+                allConstructionPoints = com.constructionPoints
+                for point in allConstructionPoints:
+                    if point is not None:
+                        if point.name[:2] == "VP":
+                            viaPointInfo = point.name.split("_")
+                            viaPoint = ViaPoint()
+                            p = point.geometry
+                            viaPoint.coordinates = str(p.x) + " " + str(p.y) + " " + str(p.z)
+                            viaPoint.link = viaPointInfo[2]
+                            viaPoint.number = viaPointInfo[3]
+                            myoNumber = viaPointInfo[1][5:]
+                            myoMuscleList = list(filter(lambda x: x.number == myoNumber, pluginObj.myoMuscles))
+                            if not myoMuscleList:
+                                myoMuscle = MyoMuscle()
+                                myoMuscle.viaPoints.append(viaPoint)
+                                myoMuscle.number = myoNumber
+                                pluginObj.myoMuscles.append(myoMuscle)
+                            if myoMuscleList:
+                                myoMuscleList[0].viaPoints.append(viaPoint) 
+        global exportViaPoints
+        if(exportViaPoints):
+            # create plugin node
+            global pluginFileName
+            global pluginName
+            plugin = ET.Element("plugin", filename=pluginFileName, name=pluginName)
+            model.append(plugin)
+            allMyoMuscles = pluginObj.myoMuscles
+            allMyoMuscles.sort(key=lambda x: x.number)
+            # create myoMuscle nodes
+            for myo in allMyoMuscles:
+                myoMuscle = ET.Element("myoMuscle", name="motor"+myo.number)
+                plugin.append(myoMuscle)
+                allViaPoints = myo.viaPoints
+                allViaPoints.sort(key=lambda x: x.number)
+                link = ET.Element("link", name="default")
+                # create viaPoint nodes as children of links
+                for via in allViaPoints:
+                    if link.get("name") != via.link:
+                        link = ET.Element("link", name=via.link)
+                        myoMuscle.append(link)
+                    # TODO: export more types of viaPoints
+                    viaPoint = ET.Element("viaPoint", type="FIXPOINT")
+                    # TODO: rotate global coordinates into link frame coordinates
+                    viaPoint.text=via.coordinates
+                    link.append(viaPoint)
+
         filename = fileDir + "/model.sdf"
         domxml = DOM.parseString(ET.tostring(root))
         pretty = domxml.toprettyxml()
