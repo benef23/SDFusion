@@ -452,7 +452,7 @@ def run(context):
                             viaPointInfo = point.name.split("_")
                             viaPoint = ViaPoint()
                             p = point.geometry
-                            viaPoint.coordinates = str(p.x) + " " + str(p.y) + " " + str(p.z)
+                            viaPoint.coordinates = str(p.x*0.01) + " " + str(p.y*0.01) + " " + str(p.z*0.01)
                             viaPoint.link = viaPointInfo[2]
                             viaPoint.number = viaPointInfo[3]
                             myoNumber = viaPointInfo[1][5:]
