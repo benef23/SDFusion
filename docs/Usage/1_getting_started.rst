@@ -14,7 +14,7 @@ Model specification
 
 A good practice is to generate a dedicated simulation copy of the Fusion robot model.
 
-Therein all links of the robot have to be designed as rigid groups. All rigid groups will be exported as mesh (STL) files and will be listed in the model SDF file. make sure, taht all rigid groups have a unique name!
+Therein all links of the robot have to be designed as rigid groups. All rigid groups will be exported as mesh (STL) files and will be listed in the model SDF file. Make supported that all rigid groups have a unique name!
 
 At the moment the following joint types are supported: fixed, cylindrical and ball joint. For cylindrical joints the joint limits are automatically exported. For ball joints the joint limits can't be exported, as this is not supported by the SDFormat. Make sure that all joints have a unique name!
 
@@ -31,5 +31,9 @@ The variable **fileDir** specifies the location where the generated model.sdf fi
 
 The variable **modelName** specifies the name of the robot model. This is the name under which you will find the model in Gazebo.
 
+The variable **pluginFileName** specifies the file name of the plugin that Gazebo should load together with this robot model.
+
+The variable **pluginName** specifies the name of the plugin that Gazebo should load together with this robot model.
+
 .. figure:: images/GlobalVariables.png
-  :alt: Change these variables
+  :alt: Change the variables explained above
